@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drug-pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drug-pipeline
+  template:
+    metadata:
+      labels:
+        app: drug-pipeline
+    spec:
+      containers:
+      - name: drug-pipeline-container
+        image: drug-ae-pipeline
+        imagePullPolicy: Never

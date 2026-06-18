@@ -374,3 +374,16 @@ This project is for educational and research purposes only.
 The results should not be used for medical decision-making.
 
 Any findings from FAERS data should be validated with clinical expertise and additional data sources.
+## CI/CD Implementation
+
+This project uses GitHub Actions for a basic Continuous Integration pipeline.  
+The CI workflow is defined in `.github/workflows/ci.yml`.
+
+The workflow automatically runs on every push or pull request to the `main` branch. It performs the following steps:
+
+1. Checks out the repository
+2. Sets up Python 3.12
+3. Installs project dependencies from `requirements.txt`
+4. Runs the main data pipeline using `python pipeline.py`
+
+This helps ensure that the pipeline remains reproducible and that future code changes do not break the project workflow.
