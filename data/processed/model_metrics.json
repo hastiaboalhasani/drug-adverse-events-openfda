@@ -1,0 +1,31 @@
+{
+    "model": "RandomForestClassifier",
+    "roc_auc": 0.8395769167395466,
+    "accuracy": 0.7473159509202454,
+    "features": [
+        "patient_age",
+        "patient_weight",
+        "num_drugs",
+        "num_suspect_drugs",
+        "num_reactions",
+        "patient_sex_male",
+        "patient_sex_unknown",
+        "max_drug_risk",
+        "avg_drug_risk",
+        "sum_drug_risk"
+    ],
+    "confusion_matrix": [
+        [
+            448,
+            137
+        ],
+        [
+            522,
+            1501
+        ]
+    ],
+    "class_distribution_training": {
+        "1": 0.7757000383582662,
+        "0": 0.2242999616417338
+    }
+}

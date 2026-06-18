@@ -1,0 +1,82 @@
+🚀 Starting Improved Machine Learning Pipeline...
+✅ Using database: /Users/hasti/Desktop/drug-adverse-events-openfda/database/faers.db
+
+📌 Columns in model dataset:
+['report_id', 'serious', 'num_drugs', 'num_suspect_drugs', 'num_reactions', 'patient_age', 'patient_weight', 'patient_sex_male', 'patient_sex_unknown']
+
+📌 Columns in graph risk file:
+['drug_name', 'graph_risk_score', 'interaction_count', 'centrality', 'normalized_risk_score']
+✅ Using graph risk columns: drug_name, normalized_risk_score
+
+📌 Columns in drugs table:
+['drug_id', 'report_id', 'drug_name', 'is_suspect', 'administration_route']
+✅ Using drug name column from database: drug_name
+
+📊 Drug risk mapping check:
+   report_id    drug_name  drug_graph_risk
+0   15778831  VEDOLIZUMAB              0.0
+1   15778831  VEDOLIZUMAB              0.0
+2   15778831  VEDOLIZUMAB              0.0
+3   15778831  VEDOLIZUMAB              0.0
+4   15778831  VEDOLIZUMAB              0.0
+5   15778831  VEDOLIZUMAB              0.0
+6   15778831  VEDOLIZUMAB              0.0
+7   15778831  VEDOLIZUMAB              0.0
+8   15778831  VEDOLIZUMAB              0.0
+9   15778831  VEDOLIZUMAB              0.0
+
+✅ Non-zero drug risk matches: 18759 / 158021
+
+📊 Report-level graph risk summary:
+       max_drug_risk  avg_drug_risk  sum_drug_risk
+count   13036.000000   13036.000000   13036.000000
+mean       23.131211       4.187809      36.873870
+std        36.452456       9.573452     114.208130
+min         0.000000       0.000000       0.000000
+25%         0.000000       0.000000       0.000000
+50%         4.496187       0.310267       5.536513
+75%        27.251308       4.167437      40.675814
+max       100.000000     100.000000    6570.815859
+
+✅ Features used:
+['patient_age', 'patient_weight', 'num_drugs', 'num_suspect_drugs', 'num_reactions', 'patient_sex_male', 'patient_sex_unknown', 'max_drug_risk', 'avg_drug_risk', 'sum_drug_risk']
+
+📊 Class distribution in training set:
+serious
+1    0.7757
+0    0.2243
+Name: proportion, dtype: float64
+
+🌲 Training Random Forest...
+
+✅ Improved Model Evaluation:
+              precision    recall  f1-score   support
+
+           0       0.48      0.73      0.58       585
+           1       0.91      0.78      0.84      2023
+
+    accuracy                           0.76      2608
+   macro avg       0.70      0.75      0.71      2608
+weighted avg       0.81      0.76      0.78      2608
+
+Confusion Matrix:
+[[ 425  160]
+ [ 455 1568]]
+
+ROC-AUC Score: 0.8394
+
+💎 Feature Importances:
+               feature  importance
+0          patient_age    0.195274
+3    num_suspect_drugs    0.156633
+2            num_drugs    0.147188
+4        num_reactions    0.111758
+9        sum_drug_risk    0.104431
+8        avg_drug_risk    0.088910
+7        max_drug_risk    0.079258
+1       patient_weight    0.066214
+5     patient_sex_male    0.034082
+6  patient_sex_unknown    0.016252
+
+✅ Enhanced dataset saved to:
+/Users/hasti/Desktop/drug-adverse-events-openfda/data/processed/model_dataset_with_graph_risk.csv
